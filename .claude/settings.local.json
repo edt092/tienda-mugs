@@ -13,7 +13,11 @@
       "Bash(cmd.exe //c \"taskkill //F //PID 3664\")",
       "Bash(chmod:*)",
       "Bash(git init:*)",
-      "Bash(git remote add:*)"
+      "Bash(git remote add:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nfeat: Implementar sistema completo de carrito, checkout y pagos\n\n- Añadir categoría de tumblers con producto \"Born to Win\"\n- Crear sistema de carrito con localStorage\n- Implementar página de carrito con gestión de productos\n- Crear página de checkout con:\n  * Formulario completo de datos del cliente (Formspree)\n  * Integración con Payphone para pagos con tarjeta\n  * Opción de transferencia bancaria vía WhatsApp\n  * Logos de métodos de pago (Visa, Mastercard, Amex, PayPal)\n- Añadir API endpoint para confirmación de pagos Payphone\n- Integrar botón flotante de WhatsApp en checkout\n- Actualizar Navbar con contador dinámico de carrito\n- Configurar envío incluido solo en Quito\n- Crear documentación completa de configuración\n- Añadir archivo .env.example con variables necesarias\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(git push:*)",
+      "Bash(git commit:*)"
     ]
   }
 }
