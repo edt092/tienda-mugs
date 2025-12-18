@@ -9,7 +9,7 @@ import WhatsAppButton from '@/components/WhatsAppButton';
 
 declare global {
   interface Window {
-    payphone: any;
+    PPaymentButtonBox: any;
   }
 }
 
@@ -37,20 +37,28 @@ export default function CheckoutPage() {
   }, []);
 
   useEffect(() => {
-    // Cargar el script de Payphone cuando el método de pago sea payphone
+    // Cargar el CSS y JS de Payphone cuando el método de pago sea payphone
     if (paymentMethod === 'payphone') {
-      const appId = process.env.NEXT_PUBLIC_PAYPHONE_APP_ID;
-      if (appId && !document.querySelector(`script[src*="payphonetodoesposible.com"]`)) {
+      // Cargar CSS
+      if (!document.querySelector(`link[href*="payphone-payment-box.css"]`)) {
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = 'https://cdn.payphonetodoesposible.com/box/v1.1/payphone-payment-box.css';
+        document.head.appendChild(link);
+      }
+
+      // Cargar JS
+      if (!document.querySelector(`script[src*="payphone-payment-box.js"]`)) {
         const script = document.createElement('script');
-        script.src = `https://pay.payphonetodoesposible.com/api/button/js?appId=${appId}`;
-        script.async = true;
+        script.type = 'module';
+        script.src = 'https://cdn.payphonetodoesposible.com/box/v1.1/payphone-payment-box.js';
         script.onload = () => {
-          console.log('Payphone script cargado correctamente');
+          console.log('Payphone SDK cargado correctamente');
         };
         script.onerror = () => {
-          console.error('Error al cargar el script de Payphone');
+          console.error('Error al cargar el SDK de Payphone');
         };
-        document.body.appendChild(script);
+        document.head.appendChild(script);
       }
     }
   }, [paymentMethod]);
@@ -203,18 +211,18 @@ export default function CheckoutPage() {
     if (!validateForm()) return;
 
     const total = cartUtils.getCartTotal(cart);
-    const clientTxId = `order-${Date.now()}`;
+    const clientTxId = `TM-${Date.now()}`;
 
-    // Esperar a que el script de Payphone esté cargado
+    // Esperar a que el SDK de Payphone esté cargado
     const waitForPayphone = () => {
       return new Promise((resolve, reject) => {
         let attempts = 0;
-        const maxAttempts = 20; // 10 segundos máximo
+        const maxAttempts = 30; // 15 segundos máximo
 
         const checkPayphone = setInterval(() => {
           attempts++;
 
-          if (window.payphone) {
+          if (window.PPaymentButtonBox) {
             clearInterval(checkPayphone);
             resolve(true);
           } else if (attempts >= maxAttempts) {
@@ -228,25 +236,46 @@ export default function CheckoutPage() {
     try {
       await waitForPayphone();
 
-      // Configurar el botón de Payphone
-      window.payphone.Button({
-        token: process.env.NEXT_PUBLIC_PAYPHONE_TOKEN,
-        btnHorizontal: true,
-        btnOutline: false,
-        amount: Math.round(total * 100), // Monto en centavos
-        tax: 0,
-        amountWithTax: Math.round(total * 100),
-        currency: "USD",
-        clientTransactionId: clientTxId,
+      // Limpiar el contenedor antes de renderizar
+      const container = document.getElementById('pp-button');
+      if (container) {
+        container.innerHTML = '';
+      }
 
+      // Obtener el token sin el prefijo "Bearer "
+      const token = process.env.NEXT_PUBLIC_PAYPHONE_TOKEN?.replace('Bearer ', '') || '';
+      const storeId = process.env.NEXT_PUBLIC_PAYPHONE_APP_ID || '';
+
+      console.log('Configurando Payphone con:', {
+        storeId,
+        amount: Math.round(total * 100),
+        clientTxId
+      });
+
+      // Configurar la cajita de pagos de Payphone
+      const ppb = new window.PPaymentButtonBox({
+        token: token,
+        storeId: storeId,
+        clientTransactionId: clientTxId,
+        amount: Math.round(total * 100), // Monto en centavos
+        amountWithoutTax: Math.round(total * 100),
+        amountWithTax: 0,
+        tax: 0,
+        currency: "USD",
+        reference: `Pedido ${clientTxId}`,
+        lang: "es",
         onComplete: async function (result: any) {
-          if (result.transactionId) {
+          console.log('Pago completado:', result);
+
+          if (result && (result.transactionId || result.id)) {
+            const transactionId = result.transactionId || result.id;
+
             try {
               const response = await fetch('/api/payphone/confirm', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                  id: result.transactionId,
+                  id: transactionId,
                   clientTxId: clientTxId
                 })
               });
@@ -254,16 +283,15 @@ export default function CheckoutPage() {
               const data = await response.json();
 
               if (data.success) {
-                // Enviar notificación por email con todos los detalles del pedido
+                // Enviar notificación por email
                 try {
                   await sendOrderEmailNotification(
                     clientTxId,
                     'Pago con Tarjeta (Payphone)',
-                    result.transactionId
+                    transactionId
                   );
                 } catch (error) {
                   console.error('Error al enviar notificación por email:', error);
-                  // Continuar aunque falle el email
                 }
 
                 // Limpiar carrito
@@ -280,8 +308,14 @@ export default function CheckoutPage() {
               alert('Error al procesar el pago. Por favor contacta con soporte.');
             }
           }
+        },
+        onCancel: function() {
+          console.log('Pago cancelado por el usuario');
         }
-      }).render("#payphone-button");
+      });
+
+      ppb.render('pp-button');
+
     } catch (error) {
       console.error('Error al cargar Payphone:', error);
       alert('Error al cargar el sistema de pago. Por favor recarga la página.');
@@ -580,7 +614,7 @@ export default function CheckoutPage() {
                   <div className="mt-6">
                     {paymentMethod === 'payphone' ? (
                       <div className="space-y-4">
-                        <div id="payphone-button" className="payphone-container"></div>
+                        <div id="pp-button" className="payphone-container"></div>
                         <button
                           onClick={handlePayphonePayment}
                           type="button"
