@@ -139,6 +139,37 @@ export const products: Product[] = [
       'Desarrollo de Mentalidad de Ganador: Tu éxito es inevitable, no opcional'
     ]
   },
+  {
+    id: '5',
+    name: 'Gracias',
+    slug: 'tumbler-gracias',
+    tagline: 'La gratitud como estilo de vida',
+    description: 'Este tumbler de acero inoxidable es tu recordatorio diario del poder transformador de la gratitud. Cada vez que lo uses, activarás una de las emociones más poderosas para reprogramar tu cerebro hacia la abundancia. Mantén tus bebidas frías por 24 horas o calientes por 12 horas, mientras cultivas el hábito que la neurociencia confirma como clave para el bienestar y el éxito.',
+    price: 39.99,
+    image: '/img/productos/tumblers/tumbler-gracias/tumbler-gracias-1.png',
+    images: [
+      '/img/productos/tumblers/tumbler-gracias/tumbler-gracias-1.png',
+      '/img/productos/tumblers/tumbler-gracias/tumbler-gracias-2.png',
+    ],
+    category: 'tumblers',
+    psychologicalBenefits: [
+      'Activa la liberación de dopamina y serotonina, neurotransmisores del bienestar',
+      'Reduce significativamente los niveles de cortisol (hormona del estrés)',
+      'Fortalece la resiliencia mental ante adversidades y desafíos',
+      'Mejora la calidad del sueño y reduce síntomas de ansiedad y depresión'
+    ],
+    neuroscience: {
+      title: 'La Neurociencia de la Gratitud',
+      description: 'Estudios de neuroimagen revelan que practicar la gratitud activa la corteza prefrontal medial y el córtex cingulado anterior, áreas asociadas con la toma de decisiones y la regulación emocional. Cuando expresas gratitud, tu cerebro libera dopamina y serotonina, creando un "circuito de recompensa" que te motiva a buscar más experiencias positivas. La gratitud literalmente reconfigura tu cerebro para enfocarse en la abundancia en lugar de la escasez.'
+    },
+    dailyImpact: 'Al ver la palabra "Gracias" múltiples veces al día, activas automáticamente tu Sistema de Activación Reticular (SAR) para detectar cosas por las cuales estar agradecido. Después de 21 días de práctica consistente, tu cerebro desarrolla un "sesgo de gratitud" que transforma tu experiencia de vida.',
+    mentalBenefits: [
+      'Aumento del 25% en niveles generales de felicidad (estudios UC Berkeley)',
+      'Mejora de Relaciones Interpersonales mediante empatía y apreciación',
+      'Incremento de Resiliencia Mental ante situaciones adversas',
+      'Activación del Modo Abundancia: Enfoque en lo que tienes vs lo que te falta'
+    ]
+  },
 ];
 
 export function getProductBySlug(slug: string): Product | undefined {

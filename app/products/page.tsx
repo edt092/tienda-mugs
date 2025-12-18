@@ -10,8 +10,6 @@ export default function ProductsPage() {
   const categories = [
     { value: 'all', label: 'Todos' },
     { value: 'mentalidad', label: 'Mentalidad' },
-    { value: 'productividad', label: 'Productividad' },
-    { value: 'ventas', label: 'Ventas' },
     { value: 'tumblers', label: 'Tumblers' },
   ];
 

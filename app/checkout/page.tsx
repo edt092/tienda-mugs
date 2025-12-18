@@ -34,19 +34,23 @@ export default function CheckoutPage() {
     const cartData = cartUtils.getCart();
     setCart(cartData);
     setIsLoading(false);
+  }, []);
 
-    // Cargar el script de Payphone
+  useEffect(() => {
+    // Cargar el script de Payphone cuando el método de pago sea payphone
     if (paymentMethod === 'payphone') {
       const appId = process.env.NEXT_PUBLIC_PAYPHONE_APP_ID;
-      if (appId) {
+      if (appId && !document.querySelector(`script[src*="payphonetodoesposible.com"]`)) {
         const script = document.createElement('script');
         script.src = `https://pay.payphonetodoesposible.com/api/button/js?appId=${appId}`;
         script.async = true;
-        document.body.appendChild(script);
-
-        return () => {
-          document.body.removeChild(script);
+        script.onload = () => {
+          console.log('Payphone script cargado correctamente');
         };
+        script.onerror = () => {
+          console.error('Error al cargar el script de Payphone');
+        };
+        document.body.appendChild(script);
       }
     }
   }, [paymentMethod]);
@@ -58,7 +62,93 @@ export default function CheckoutPage() {
     });
   };
 
-  const handleTransferPayment = () => {
+  const sendOrderEmailNotification = async (orderId: string, paymentMethod: string, transactionId?: string) => {
+    const formspreeId = process.env.NEXT_PUBLIC_FORMSPREE_ID;
+    if (!formspreeId) return;
+
+    const total = cartUtils.getCartTotal(cart);
+    const orderDate = new Date().toLocaleString('es-EC', {
+      dateStyle: 'full',
+      timeStyle: 'short',
+      timeZone: 'America/Guayaquil'
+    });
+
+    // Crear lista detallada de productos para el email
+    const productsList = cart.map(item => {
+      const itemSubtotal = item.price * item.quantity;
+      return {
+        nombre: item.name,
+        cantidad: item.quantity,
+        precioUnitario: `$${item.price.toFixed(2)}`,
+        subtotal: `$${itemSubtotal.toFixed(2)}`,
+        imagen: item.image
+      };
+    });
+
+    // Crear objeto de orden completo
+    const orderData = {
+      // Información del pedido
+      '_subject': `🛒 Nuevo Pedido #${orderId} - Tienda Mugs`,
+      numeroPedido: orderId,
+      fechaHora: orderDate,
+      metodoPago: paymentMethod,
+      ...(transactionId && { transaccionPayphone: transactionId }),
+
+      // Información del cliente
+      nombreCompleto: `${formData.firstName} ${formData.lastName}`,
+      nombre: formData.firstName,
+      apellidos: formData.lastName,
+      email: formData.email,
+      telefono: formData.phone,
+
+      // Dirección de envío
+      direccion: formData.address,
+      ciudad: formData.city,
+      codigoPostal: formData.zipCode || 'No especificado',
+      pais: formData.country,
+      detallesAdicionales: formData.details || 'Ninguno',
+
+      // Productos
+      productos: productsList,
+      cantidadProductos: cart.length,
+      totalArticulos: cartUtils.getCartItemsCount(cart),
+
+      // Resumen de productos (texto plano para email)
+      resumenProductos: cart.map(item =>
+        `${item.quantity}x ${item.name} - $${item.price.toFixed(2)} c/u = $${(item.price * item.quantity).toFixed(2)}`
+      ).join('\n'),
+
+      // Totales
+      total: `$${total.toFixed(2)}`,
+      totalNumerico: total,
+      envio: 'Incluido solo en Quito',
+
+      // Notas
+      nota: '✓ Envío incluido solo en Quito',
+    };
+
+    try {
+      const response = await fetch(`https://formspree.io/f/${formspreeId}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(orderData)
+      });
+
+      if (!response.ok) {
+        throw new Error('Error al enviar email de confirmación');
+      }
+
+      return true;
+    } catch (error) {
+      console.error('Error al enviar notificación por email:', error);
+      throw error;
+    }
+  };
+
+  const handleTransferPayment = async () => {
     if (!validateForm()) return;
 
     const orderDetails = cart.map(item =>
@@ -66,9 +156,21 @@ export default function CheckoutPage() {
     ).join('\n');
 
     const total = cartUtils.getCartTotal(cart);
+    const orderId = `TM-${Date.now()}`;
+
+    // Enviar notificación por email a través de Formspree
+    const formspreeId = process.env.NEXT_PUBLIC_FORMSPREE_ID;
+    if (formspreeId) {
+      try {
+        await sendOrderEmailNotification(orderId, 'Transferencia Bancaria');
+      } catch (error) {
+        console.error('Error al enviar notificación por email:', error);
+      }
+    }
 
     const message = encodeURIComponent(
       `Hola! Quiero realizar una compra por transferencia bancaria:\n\n` +
+      `*PEDIDO: ${orderId}*\n\n` +
       `*DATOS DE CONTACTO:*\n` +
       `Nombre: ${formData.firstName} ${formData.lastName}\n` +
       `Email: ${formData.email}\n` +
@@ -103,8 +205,30 @@ export default function CheckoutPage() {
     const total = cartUtils.getCartTotal(cart);
     const clientTxId = `order-${Date.now()}`;
 
-    // Configurar el botón de Payphone
-    if (window.payphone) {
+    // Esperar a que el script de Payphone esté cargado
+    const waitForPayphone = () => {
+      return new Promise((resolve, reject) => {
+        let attempts = 0;
+        const maxAttempts = 20; // 10 segundos máximo
+
+        const checkPayphone = setInterval(() => {
+          attempts++;
+
+          if (window.payphone) {
+            clearInterval(checkPayphone);
+            resolve(true);
+          } else if (attempts >= maxAttempts) {
+            clearInterval(checkPayphone);
+            reject(new Error('Timeout esperando a Payphone'));
+          }
+        }, 500);
+      });
+    };
+
+    try {
+      await waitForPayphone();
+
+      // Configurar el botón de Payphone
       window.payphone.Button({
         token: process.env.NEXT_PUBLIC_PAYPHONE_TOKEN,
         btnHorizontal: true,
@@ -130,20 +254,16 @@ export default function CheckoutPage() {
               const data = await response.json();
 
               if (data.success) {
-                // Enviar datos del formulario a Formspree
-                const formspreeId = process.env.NEXT_PUBLIC_FORMSPREE_ID;
-                if (formspreeId) {
-                  await fetch(`https://formspree.io/f/${formspreeId}`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                      ...formData,
-                      products: cart,
-                      total: total,
-                      paymentMethod: 'Payphone',
-                      transactionId: result.transactionId
-                    })
-                  });
+                // Enviar notificación por email con todos los detalles del pedido
+                try {
+                  await sendOrderEmailNotification(
+                    clientTxId,
+                    'Pago con Tarjeta (Payphone)',
+                    result.transactionId
+                  );
+                } catch (error) {
+                  console.error('Error al enviar notificación por email:', error);
+                  // Continuar aunque falle el email
                 }
 
                 // Limpiar carrito
@@ -162,7 +282,8 @@ export default function CheckoutPage() {
           }
         }
       }).render("#payphone-button");
-    } else {
+    } catch (error) {
+      console.error('Error al cargar Payphone:', error);
       alert('Error al cargar el sistema de pago. Por favor recarga la página.');
     }
   };
@@ -458,8 +579,8 @@ export default function CheckoutPage() {
                   {/* Payment Buttons */}
                   <div className="mt-6">
                     {paymentMethod === 'payphone' ? (
-                      <>
-                        <div id="payphone-button" className="hidden"></div>
+                      <div className="space-y-4">
+                        <div id="payphone-button" className="payphone-container"></div>
                         <button
                           onClick={handlePayphonePayment}
                           type="button"
@@ -467,7 +588,7 @@ export default function CheckoutPage() {
                         >
                           Pagar ${total.toFixed(2)} con Tarjeta
                         </button>
-                      </>
+                      </div>
                     ) : (
                       <button
                         onClick={handleTransferPayment}
