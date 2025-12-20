@@ -26,6 +26,16 @@ yarn-error.log*
 .env*.local
 .env
 
+# sensitive files with credentials
+VARIABLES-NETLIFY.txt
+PAYPHONE-CONFIGURADO.md
+DEPLOY-NETLIFY.md
+*.credentials
+*.secrets
+
+# claude local settings
+.claude/settings.local.json
+
 # vercel
 .vercel
 

@@ -1,5 +1,6 @@
 import Hero from '@/components/Hero';
 import ProductCard from '@/components/ProductCard';
+import PromoCarousel from '@/components/PromoCarousel';
 import { products } from '@/lib/products';
 import Link from 'next/link';
 
@@ -8,6 +9,9 @@ export default function Home() {
 
   return (
     <div className="pt-16">
+      {/* Promo Carousel - Kits de Regalo */}
+      <PromoCarousel />
+
       <Hero />
 
       {/* Featured Products Section */}

@@ -7,7 +7,7 @@ export const products: Product[] = [
     slug: 'hoy-es-un-dia-fenomenal',
     tagline: 'Comienza cada día con mentalidad positiva',
     description: 'Cada mañana es una nueva oportunidad para reprogramar tu mente hacia el éxito. Esta taza no es solo un recipiente para tu café, es tu compañera diaria en la construcción de una mentalidad ganadora.',
-    price: 29.99,
+    price: 14.49,
     image: '/img/productos/hoy-es-un-dia-fenomenal/hoy-es-un-dia-fenomenal-1.png',
     images: [
       '/img/productos/hoy-es-un-dia-fenomenal/hoy-es-un-dia-fenomenal-1.png',
@@ -43,7 +43,7 @@ export const products: Product[] = [
     slug: 'la-calma-es-mi-reino',
     tagline: 'Mantén la calma en cualquier situación',
     description: 'En un mundo de caos constante, la calma no es debilidad: es tu estrategia de poder. Esta taza te recuerda cada día que controlar tu estado interno es la clave para dominar tu realidad externa.',
-    price: 29.99,
+    price: 14.49,
     image: '/img/productos/la-calma-es-mi-reino/la-calma-es-mi-reino-1.png',
     images: [
       '/img/productos/la-calma-es-mi-reino/la-calma-es-mi-reino-1.png',
@@ -79,7 +79,7 @@ export const products: Product[] = [
     slug: 'soy-un-multimillonario',
     tagline: 'Mentalidad de abundancia y éxito',
     description: 'La riqueza comienza en la mente. Esta afirmación diaria reprograma tu relación con el dinero, eliminando bloqueos mentales de escasez y activando tu Activador Reticular (SAR) para detectar oportunidades de abundancia.',
-    price: 29.99,
+    price: 14.49,
     image: '/img/productos/soy-un-multimillonario/soy-un-multimillonario.png',
     images: [
       '/img/productos/soy-un-multimillonario/soy-un-multimillonario.png',
@@ -112,7 +112,7 @@ export const products: Product[] = [
     slug: 'tumbler-negro-born-to-win',
     tagline: 'Naciste para ganar',
     description: 'Este tumbler de acero inoxidable es más que un simple recipiente para tus bebidas. Es un recordatorio constante de que naciste con el potencial de ganar. Mantén tus bebidas frías por 24 horas o calientes por 12 horas, mientras llevas contigo el mensaje que refuerza tu mentalidad ganadora.',
-    price: 39.99,
+    price: 24.49,
     image: '/img/productos/tumblers/tumbler-negro/tumbler-negro-born-to-win.png',
     images: [
       '/img/productos/tumblers/tumbler-negro/tumbler-negro-born-to-win.png',
@@ -145,7 +145,7 @@ export const products: Product[] = [
     slug: 'tumbler-gracias',
     tagline: 'La gratitud como estilo de vida',
     description: 'Este tumbler de acero inoxidable es tu recordatorio diario del poder transformador de la gratitud. Cada vez que lo uses, activarás una de las emociones más poderosas para reprogramar tu cerebro hacia la abundancia. Mantén tus bebidas frías por 24 horas o calientes por 12 horas, mientras cultivas el hábito que la neurociencia confirma como clave para el bienestar y el éxito.',
-    price: 39.99,
+    price: 24.49,
     image: '/img/productos/tumblers/tumbler-gracias/tumbler-gracias-1.png',
     images: [
       '/img/productos/tumblers/tumbler-gracias/tumbler-gracias-1.png',
@@ -168,6 +168,161 @@ export const products: Product[] = [
       'Mejora de Relaciones Interpersonales mediante empatía y apreciación',
       'Incremento de Resiliencia Mental ante situaciones adversas',
       'Activación del Modo Abundancia: Enfoque en lo que tienes vs lo que te falta'
+    ]
+  },
+  {
+    id: '6',
+    name: 'Kit Nacido Para Ganar',
+    slug: 'kit-nacido-para-ganar',
+    tagline: 'El regalo perfecto para impulsar el éxito',
+    description: 'Este exclusivo kit de regalo viene presentado en una elegante caja lista para obsequiar. El regalo perfecto para esa persona especial que quieres impulsar hacia el éxito. Incluye: Tumbler negro con el mensaje "Nacido Para Ganar", soporte de teléfono de bamboo con bloc de notas amarillas (13cm x 8cm), bolígrafo ejecutivo blanco con azul con base circular y cordón elástico (tinta azul), y libreta de pasta dura color negro mate. Todo lo que necesitas para organizar tus ideas y mantener tu enfoque en el éxito. Envío gratis en Quito incluido.',
+    price: 39.99,
+    image: '/img/productos/tumblers/tumbler-negro/tumbler-negro-born-to-win-combo-1.png',
+    images: [
+      '/img/productos/tumblers/tumbler-negro/tumbler-negro-born-to-win-combo-1.png',
+      '/img/productos/tumblers/tumbler-negro/tumbler-negro-born-to-win-combo-2.png',
+    ],
+    category: 'tumblers',
+    psychologicalBenefits: [
+      'Refuerza la identidad de ganador con cada uso de los artículos del kit',
+      'El acto de escribir a mano activa la corteza prefrontal y mejora la retención de metas',
+      'El soporte de teléfono reduce distracciones y promueve el enfoque consciente',
+      'La organización física del espacio de trabajo reduce la ansiedad y aumenta la claridad mental'
+    ],
+    neuroscience: {
+      title: 'El Sistema de Productividad Consciente',
+      description: 'Los estudios en neurociencia demuestran que escribir metas a mano activa el Sistema de Activación Reticular (SAR), programando tu cerebro para detectar oportunidades alineadas con tus objetivos. Cada componente de este kit está diseñado para crear un ritual de éxito: el tumbler te recuerda tu identidad ganadora, la libreta captura tus ideas de alto impacto, y el soporte de teléfono te mantiene conectado sin perder el enfoque. Juntos, crean un ecosistema de productividad que refuerza tu mentalidad de logro.'
+    },
+    dailyImpact: 'Al usar este kit diariamente, estableces un ritual de éxito que combina hidratación consciente, planificación estratégica y organización mental. En 30 días, estos hábitos se convierten en tu sistema automático de alto rendimiento.',
+    mentalBenefits: [
+      'Creación de Rituales de Éxito: Cada mañana comienza con intención y propósito',
+      'Activación de la Escritura Manual: Mejora la memoria y el compromiso con tus metas',
+      'Reducción del Desorden Mental: Un espacio organizado refleja una mente clara',
+      'Identidad de Ganador Reforzada: Múltiples puntos de contacto con mensajes positivos'
+    ]
+  },
+  {
+    id: '7',
+    name: 'Kit Gratitude',
+    slug: 'kit-gratitude',
+    tagline: 'Regala el poder de la gratitud',
+    description: 'Este exclusivo kit de regalo viene presentado en una elegante caja lista para obsequiar. El regalo perfecto para agradecer a esa persona especial. Incluye: Tumbler negro con el mensaje "GRATITUDE.", soporte de teléfono de bamboo con bloc de notas amarillas (13cm x 8cm), bolígrafo ejecutivo blanco con azul con base circular y cordón elástico (tinta azul), y libreta de pasta dura color negro mate. Un kit completo para cultivar la gratitud diaria y la productividad consciente. Envío gratis en Quito incluido.',
+    price: 39.99,
+    image: '/img/productos/tumblers/tumbler-gracias/tumbler-gracias-regalo-1.png',
+    images: [
+      '/img/productos/tumblers/tumbler-gracias/tumbler-gracias-regalo-1.png',
+      '/img/productos/tumblers/tumbler-gracias/tumbler-gracias-regalo-2.png',
+    ],
+    category: 'tumblers',
+    psychologicalBenefits: [
+      'La gratitud activa el sistema de recompensa cerebral liberando dopamina y serotonina',
+      'El acto de escribir gratitudes a mano fortalece las conexiones neuronales positivas',
+      'El soporte de teléfono promueve pausas conscientes para reflexionar y agradecer',
+      'La organización del espacio de trabajo crea un ambiente propicio para el bienestar mental'
+    ],
+    neuroscience: {
+      title: 'El Kit de la Gratitud Consciente',
+      description: 'Investigaciones en neurociencia positiva demuestran que practicar la gratitud de forma consistente reconfigura literalmente el cerebro. Escribir en la libreta tres cosas por las que estás agradecido activa la corteza prefrontal medial, mientras que ver el mensaje "GRATITUDE." en tu tumbler refuerza este hábito transformador. El soporte de bamboo te invita a pausar y reflexionar, creando un ritual completo de bienestar que mejora tu salud mental y tu perspectiva de vida.'
+    },
+    dailyImpact: 'Al usar este kit diariamente, estableces un ritual de gratitud que combina hidratación consciente, escritura reflexiva y organización mental. En 21 días, tu cerebro desarrolla un "sesgo de gratitud" que te permite ver oportunidades y bendiciones donde antes solo veías problemas.',
+    mentalBenefits: [
+      'Aumento del 25% en Felicidad General: Respaldado por estudios de UC Berkeley',
+      'Reducción del Estrés: La gratitud disminuye los niveles de cortisol',
+      'Mejora del Sueño: Escribir gratitudes antes de dormir mejora la calidad del descanso',
+      'Fortalecimiento de Relaciones: La gratitud expresada mejora los vínculos interpersonales'
+    ]
+  },
+  {
+    id: '8',
+    name: 'Kit Día Fenomenal',
+    slug: 'kit-dia-fenomenal',
+    tagline: 'Celebra cada día con estilo',
+    description: 'Este exclusivo kit de regalo viene presentado en una elegante caja lista para obsequiar. El regalo perfecto para celebrar a esa persona especial. Incluye: Taza negra con el mensaje "Hoy es un Día Fenomenal", botella de vino espumante Brut (375ml), y deliciosos chocolates gourmet. Un kit completo para brindar por los días fenomenales y cultivar la mentalidad positiva. Envío gratis en Quito incluido.',
+    price: 24.49,
+    image: '/img/productos/hoy-es-un-dia-fenomenal/hoy-es-un-dia-fenomenal-regalo.png',
+    images: [
+      '/img/productos/hoy-es-un-dia-fenomenal/hoy-es-un-dia-fenomenal-regalo.png',
+      '/img/productos/hoy-es-un-dia-fenomenal/hoy-es-un-dia-fenomenal-regalo-2.png',
+    ],
+    category: 'mentalidad',
+    psychologicalBenefits: [
+      'El acto de regalar activa el sistema de recompensa cerebral tanto en quien da como en quien recibe',
+      'Los rituales de celebración fortalecen las conexiones neuronales asociadas con la gratitud',
+      'La combinación de mensaje positivo y experiencia sensorial crea anclas emocionales duraderas',
+      'Compartir momentos especiales reduce el cortisol y aumenta la oxitocina'
+    ],
+    neuroscience: {
+      title: 'La Ciencia de Celebrar los Días Fenomenales',
+      description: 'Los neurocientíficos han demostrado que celebrar pequeños logros y momentos especiales activa el sistema de recompensa dopaminérgico, creando un ciclo positivo de motivación. Al combinar un mensaje de afirmación positiva con una experiencia de celebración, tu cerebro asocia el optimismo con sensaciones placenteras, reforzando la mentalidad de que cada día puede ser fenomenal.'
+    },
+    dailyImpact: 'Al usar esta taza cada mañana y recordar el momento especial en que la recibiste, activas un ancla emocional positiva. Tu cerebro asocia la afirmación "Hoy es un día fenomenal" con sentimientos de aprecio y celebración, potenciando su efecto transformador.',
+    mentalBenefits: [
+      'Creación de Memorias Positivas: Los regalos significativos generan recuerdos duraderos',
+      'Activación del Vínculo Social: Fortalecer relaciones mejora el bienestar general',
+      'Ritual de Celebración: Brindar por los logros refuerza la mentalidad de abundancia',
+      'Ancla Emocional: Cada uso de la taza reactiva sentimientos positivos'
+    ]
+  },
+  {
+    id: '9',
+    name: 'Kit La Calma es mi Reino',
+    slug: 'kit-la-calma-es-mi-reino',
+    tagline: 'Regala paz y serenidad',
+    description: 'Este exclusivo kit de regalo viene presentado en una elegante caja lista para obsequiar. El regalo perfecto para esa persona especial que merece un momento de paz. Incluye: Taza negra con el mensaje "La Calma es mi Reino", botella de vino espumante Brut (375ml), y deliciosos chocolates gourmet. Un kit completo para celebrar la serenidad y cultivar el equilibrio interior. Envío gratis en Quito incluido.',
+    price: 24.49,
+    image: '/img/productos/la-calma-es-mi-reino/la-calma-es-mi-reino-regalo.png',
+    images: [
+      '/img/productos/la-calma-es-mi-reino/la-calma-es-mi-reino-regalo.png',
+      '/img/productos/la-calma-es-mi-reino/la-calma-es-mi-reino-regalo-1.png',
+    ],
+    category: 'mentalidad',
+    psychologicalBenefits: [
+      'El acto de regalar activa el sistema de recompensa cerebral y fortalece vínculos',
+      'El mensaje de calma asociado con la celebración crea anclas emocionales positivas',
+      'El ritual de brindar en tranquilidad activa el sistema nervioso parasimpático',
+      'Compartir momentos de paz reduce el cortisol y aumenta la sensación de bienestar'
+    ],
+    neuroscience: {
+      title: 'La Ciencia de Regalar Serenidad',
+      description: 'Los neurocientíficos han demostrado que el acto de regalar activa las mismas áreas cerebrales de recompensa que recibir un regalo. Al combinar un mensaje de calma con una experiencia de celebración tranquila, el cerebro crea asociaciones positivas entre la serenidad y el placer, reforzando la capacidad de encontrar paz en cualquier momento.'
+    },
+    dailyImpact: 'Al usar esta taza cada mañana, activas el recuerdo del momento especial en que la recibiste. Tu cerebro asocia la afirmación "La calma es mi reino" con sentimientos de aprecio y conexión, potenciando tu capacidad de mantener la serenidad.',
+    mentalBenefits: [
+      'Creación de Memorias de Paz: Los regalos significativos generan recuerdos de tranquilidad',
+      'Activación del Vínculo Social: Fortalecer relaciones desde la calma mejora el bienestar',
+      'Ritual de Serenidad: Brindar en paz refuerza la mentalidad de equilibrio',
+      'Ancla de Calma: Cada uso de la taza reactiva la sensación de serenidad'
+    ]
+  },
+  {
+    id: '10',
+    name: 'Kit Soy un Multimillonario',
+    slug: 'kit-soy-un-multimillonario',
+    tagline: 'Regala mentalidad de abundancia',
+    description: 'Este exclusivo kit de regalo viene presentado en una elegante caja lista para obsequiar. El regalo perfecto para esa persona especial que merece activar su mentalidad de abundancia. Incluye: Taza negra con el mensaje "Soy un Multimillonario", botella de vino espumante Brut (375ml), y deliciosos chocolates gourmet. Un kit completo para brindar por la prosperidad y cultivar la mentalidad de riqueza. Envío gratis en Quito incluido.',
+    price: 24.49,
+    image: '/img/productos/soy-un-multimillonario/soy-un-multimillonario-regalo.png',
+    images: [
+      '/img/productos/soy-un-multimillonario/soy-un-multimillonario-regalo.png',
+      '/img/productos/soy-un-multimillonario/soy-un-multimillonario-regalo-1.png',
+    ],
+    category: 'mentalidad',
+    psychologicalBenefits: [
+      'El acto de regalar activa el sistema de recompensa cerebral asociado con la abundancia',
+      'Celebrar con intención de prosperidad refuerza las creencias de riqueza',
+      'El mensaje de abundancia combinado con la celebración crea anclas emocionales de éxito',
+      'Compartir momentos de prosperidad activa el mindset de multimillonario'
+    ],
+    neuroscience: {
+      title: 'La Ciencia de Celebrar la Abundancia',
+      description: 'Los neurocientíficos han demostrado que celebrar logros y visualizar la prosperidad activa el Sistema de Activación Reticular (SAR), programando el cerebro para detectar oportunidades de abundancia. Al combinar un mensaje de riqueza con una experiencia de celebración, el cerebro asocia la mentalidad millonaria con sensaciones placenteras, reforzando comportamientos de éxito financiero.'
+    },
+    dailyImpact: 'Al usar esta taza cada mañana, activas el recuerdo del brindis por tu prosperidad. Tu cerebro asocia la afirmación "Soy un multimillonario" con celebración y abundancia, potenciando tu capacidad de atraer riqueza.',
+    mentalBenefits: [
+      'Creación de Memorias de Prosperidad: Los regalos significativos generan recuerdos de abundancia',
+      'Activación del Mindset Millonario: Celebrar la riqueza refuerza la identidad próspera',
+      'Ritual de Abundancia: Brindar por la prosperidad programa el subconsciente',
+      'Ancla de Riqueza: Cada uso de la taza reactiva la mentalidad de multimillonario'
     ]
   },
 ];
