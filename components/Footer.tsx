@@ -27,8 +27,8 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/products?category=productividad" className="text-xs text-gray-400 font-medium hover:text-white transition-colors">
-                  Productividad
+                <Link href="/products?category=tumblers" className="text-xs text-gray-400 font-medium hover:text-white transition-colors">
+                  Tumblers
                 </Link>
               </li>
             </ul>
@@ -43,14 +43,19 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-xs text-gray-400 font-medium hover:text-white transition-colors">
+                <a
+                  href="https://wa.me/593967479210?text=Hola!%20Tengo%20una%20consulta%20sobre%20MindsetMugs"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs text-gray-400 font-medium hover:text-white transition-colors"
+                >
                   Contacto
-                </Link>
+                </a>
               </li>
               <li>
-                <Link href="/shipping" className="text-xs text-gray-400 font-medium hover:text-white transition-colors">
-                  Envíos
-                </Link>
+                <span className="text-xs text-gray-400 font-medium">
+                  Envío gratis en Quito
+                </span>
               </li>
             </ul>
           </div>

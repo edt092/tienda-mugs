@@ -42,3 +42,17 @@ DEPLOY-NETLIFY.md
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# scraper and development files
+promo-scraper/
+data/
+__pycache__/
+*.pyc
+*.pyo
+debug_*.png
+error_*.png
+
+# Python virtual environment
+venv/
+.venv/
+*.egg-info/

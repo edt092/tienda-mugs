@@ -1,67 +1,99 @@
-'use client';
-
-import ProductCard from '@/components/ProductCard';
+import { Metadata } from 'next';
+import ProductsPageClient from './ProductsPageClient';
 import { products } from '@/lib/products';
-import { useState } from 'react';
+
+const BASE_URL = 'https://mindsetmugs.com';
+
+export const metadata: Metadata = {
+  title: 'Tazas y Tumblers Motivacionales - La Colección',
+  description: 'Descubre nuestra colección de tazas y tumblers motivacionales diseñados para emprendedores. Mensajes inspiradores respaldados por neurociencia. Envío gratis.',
+  keywords: [
+    'tazas motivacionales',
+    'tumblers motivacionales',
+    'colección mindsetmugs',
+    'tazas para emprendedores',
+    'regalos motivacionales',
+    'tazas con mensajes',
+    'mentalidad de éxito',
+  ],
+  alternates: {
+    canonical: `${BASE_URL}/products`,
+  },
+  openGraph: {
+    title: 'Tazas y Tumblers Motivacionales - La Colección | MindsetMugs',
+    description: 'Descubre nuestra colección de tazas y tumblers motivacionales diseñados para emprendedores.',
+    url: `${BASE_URL}/products`,
+    siteName: 'MindsetMugs',
+    images: [
+      {
+        url: '/img/og-collection.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Colección MindsetMugs - Tazas y Tumblers Motivacionales',
+      },
+    ],
+    locale: 'es_ES',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Tazas y Tumblers Motivacionales - La Colección',
+    description: 'Descubre nuestra colección de tazas y tumblers motivacionales diseñados para emprendedores.',
+    images: ['/img/og-collection.jpg'],
+  },
+};
 
 export default function ProductsPage() {
-  const [filter, setFilter] = useState<string>('all');
+  // JSON-LD Schema para ItemList (lista de productos)
+  const itemListSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Colección MindsetMugs',
+    description: 'Tazas y tumblers motivacionales para emprendedores',
+    numberOfItems: products.length,
+    itemListElement: products.map((product, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      item: {
+        '@type': 'Product',
+        name: product.name,
+        url: `${BASE_URL}/products/${product.slug}`,
+        image: `${BASE_URL}${product.image}`,
+        description: product.tagline,
+        offers: {
+          '@type': 'Offer',
+          price: product.price,
+          priceCurrency: 'USD',
+          availability: 'https://schema.org/InStock',
+        },
+      },
+    })),
+  };
 
-  const categories = [
-    { value: 'all', label: 'Todos' },
-    { value: 'mentalidad', label: 'Mentalidad' },
-    { value: 'tumblers', label: 'Tumblers' },
-  ];
-
-  const filteredProducts = filter === 'all'
-    ? products
-    : products.filter(p => p.category === filter);
+  // Schema CollectionPage
+  const collectionSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Colección MindsetMugs',
+    description: 'Tazas y tumblers motivacionales diseñados para emprendedores y mentes que construyen.',
+    url: `${BASE_URL}/products`,
+    mainEntity: {
+      '@type': 'ItemList',
+      numberOfItems: products.length,
+    },
+  };
 
   return (
-    <div className="pt-24 pb-16 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="mb-12">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-black mb-4 uppercase tracking-tight">
-            La Colección
-          </h1>
-          <p className="text-gray-400 text-sm font-medium max-w-2xl normal-case">
-            Cada pieza diseñada para impulsar tu ambición. Elige tu mentalidad.
-          </p>
-        </div>
-
-        {/* Filter */}
-        <div className="flex flex-wrap gap-3 mb-12">
-          {categories.map((cat) => (
-            <button
-              key={cat.value}
-              onClick={() => setFilter(cat.value)}
-              className={`px-6 py-2.5 text-xs font-bold uppercase tracking-wider rounded-none transition-all ${
-                filter === cat.value
-                  ? 'bg-white text-black'
-                  : 'border-2 border-gray-800 text-gray-400 hover:border-white hover:text-white'
-              }`}
-            >
-              {cat.label}
-            </button>
-          ))}
-        </div>
-
-        {/* Products Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProducts.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-        </div>
-
-        {filteredProducts.length === 0 && (
-          <div className="text-center py-16">
-            <p className="text-gray-400 text-lg">
-              No se encontraron productos en esta categoría.
-            </p>
-          </div>
-        )}
-      </div>
-    </div>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }}
+      />
+      <ProductsPageClient />
+    </>
   );
 }

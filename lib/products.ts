@@ -325,6 +325,211 @@ export const products: Product[] = [
       'Ancla de Riqueza: Cada uso de la taza reactiva la mentalidad de multimillonario'
     ]
   },
+  // Productos de Etsy - Diseños personalizados
+  {
+    id: '11',
+    name: 'Taza Divertida para el Jefe',
+    slug: 'taza-divertida-para-el-jefe',
+    tagline: 'Nombres personalizados de los miembros del equipo',
+    description: 'Una taza perfecta para regalar a ese jefe con sentido del humor. Personalizable con los nombres de los miembros del equipo. Ideal para la oficina, regalos de cumpleaños o cualquier ocasión especial. Impresión de sublimación de alta calidad que no se desvanece. Apta para lavavajillas y microondas.',
+    price: 14.99,
+    image: '/img/productos/etsy/taza-divertida-para-el-jefe-nombres-personalizados-de-los-mi-1.jpg',
+    images: [
+      '/img/productos/etsy/taza-divertida-para-el-jefe-nombres-personalizados-de-los-mi-1.jpg',
+      '/img/productos/etsy/taza-divertida-para-el-jefe-nombres-personalizados-de-los-mi-2.jpg',
+      '/img/productos/etsy/taza-divertida-para-el-jefe-nombres-personalizados-de-los-mi-3.jpg',
+      '/img/productos/etsy/taza-divertida-para-el-jefe-nombres-personalizados-de-los-mi-4.jpg',
+      '/img/productos/etsy/taza-divertida-para-el-jefe-nombres-personalizados-de-los-mi-5.jpg',
+    ],
+    category: 'diseños',
+    psychologicalBenefits: [
+      'Fortalece los vínculos del equipo mediante el humor compartido',
+      'Reduce el estrés laboral con un toque de diversión',
+      'Crea un ambiente de trabajo más relajado y productivo',
+      'Refuerza la identidad del equipo con un regalo personalizado'
+    ],
+    neuroscience: {
+      title: 'El Poder del Humor en el Trabajo',
+      description: 'Los estudios demuestran que el humor en el lugar de trabajo activa los centros de recompensa del cerebro, liberando dopamina y reduciendo los niveles de cortisol. Una taza divertida crea micro-momentos de alegría que mejoran la productividad y las relaciones laborales.'
+    },
+    dailyImpact: 'Cada vez que tu jefe use esta taza, recordará a su equipo y sonreirá, creando un ancla emocional positiva que fortalece la cultura laboral.',
+    mentalBenefits: [
+      'Mejora del clima laboral mediante el humor',
+      'Fortalecimiento de la identidad del equipo',
+      'Reducción del estrés con momentos de risa',
+      'Creación de memorias positivas en el trabajo'
+    ]
+  },
+  {
+    id: '12',
+    name: 'Taza Mágica Navideña',
+    slug: 'taza-magica-navidena',
+    tagline: 'Esta es mi taza mágica navideña',
+    description: 'Dale un toque festivo a tus mañanas con esta taza mágica navideña. Perfecta para los amantes del chocolate caliente, el café o el té en la época más mágica del año. Diseño exclusivo de alta calidad con impresión sublimada resistente. El regalo perfecto para Navidad.',
+    price: 14.99,
+    image: '/img/productos/etsy/esta-es-mi-taza-magica-navidena-png-diseno-digital-taza-navi-1.jpg',
+    images: [
+      '/img/productos/etsy/esta-es-mi-taza-magica-navidena-png-diseno-digital-taza-navi-1.jpg',
+      '/img/productos/etsy/esta-es-mi-taza-magica-navidena-png-diseno-digital-taza-navi-2.jpg',
+      '/img/productos/etsy/esta-es-mi-taza-magica-navidena-png-diseno-digital-taza-navi-3.jpg',
+      '/img/productos/etsy/esta-es-mi-taza-magica-navidena-png-diseno-digital-taza-navi-4.jpg',
+      '/img/productos/etsy/esta-es-mi-taza-magica-navidena-png-diseno-digital-taza-navi-5.jpg',
+    ],
+    category: 'diseños',
+    psychologicalBenefits: [
+      'Activa la nostalgia positiva asociada con las fiestas',
+      'Crea un ritual reconfortante durante la temporada navideña',
+      'Aumenta la sensación de bienestar y calidez',
+      'Fortalece los vínculos familiares mediante tradiciones compartidas'
+    ],
+    neuroscience: {
+      title: 'La Magia de la Navidad en tu Cerebro',
+      description: 'La temporada navideña activa memorias emocionales positivas almacenadas en el hipocampo. Una taza navideña se convierte en un disparador de estas memorias, liberando oxitocina y creando sensaciones de calidez y pertenencia.'
+    },
+    dailyImpact: 'Cada mañana de diciembre, esta taza te transporta al espíritu navideño, haciendo que cada momento sea mágico.',
+    mentalBenefits: [
+      'Activación de memorias navideñas positivas',
+      'Creación de nuevas tradiciones familiares',
+      'Aumento de la sensación de magia y esperanza',
+      'Fortalecimiento del espíritu festivo'
+    ]
+  },
+  {
+    id: '13',
+    name: 'Taza Personalizada para Mascotas',
+    slug: 'taza-personalizada-mascotas',
+    tagline: 'Con foto y nombre de tu mascota',
+    description: 'Inmortaliza a tu mascota favorita en una taza de cerámica de alta calidad. Envíanos la foto de tu perro, gato o cualquier mascota y la convertiremos en un hermoso diseño. El regalo perfecto para los amantes de los animales. Personalización incluida. Impresión de sublimación resistente.',
+    price: 18.99,
+    image: '/img/productos/etsy/taza-personalizada-para-mascotas-con-foto-y-nombre-de-mascot-1.jpg',
+    images: [
+      '/img/productos/etsy/taza-personalizada-para-mascotas-con-foto-y-nombre-de-mascot-1.jpg',
+      '/img/productos/etsy/taza-personalizada-para-mascotas-con-foto-y-nombre-de-mascot-2.jpg',
+      '/img/productos/etsy/taza-personalizada-para-mascotas-con-foto-y-nombre-de-mascot-3.jpg',
+      '/img/productos/etsy/taza-personalizada-para-mascotas-con-foto-y-nombre-de-mascot-4.jpg',
+      '/img/productos/etsy/taza-personalizada-para-mascotas-con-foto-y-nombre-de-mascot-5.jpg',
+    ],
+    category: 'diseños',
+    psychologicalBenefits: [
+      'Fortalece el vínculo emocional con tu mascota',
+      'Reduce el estrés mediante la conexión con animales',
+      'Crea un recordatorio constante del amor incondicional',
+      'Activa la liberación de oxitocina al ver a tu mascota'
+    ],
+    neuroscience: {
+      title: 'El Poder Terapéutico de las Mascotas',
+      description: 'Los estudios demuestran que ver imágenes de nuestras mascotas activa las mismas áreas cerebrales que se activan con los vínculos humanos. Esto libera oxitocina y reduce el cortisol, mejorando nuestro bienestar emocional.'
+    },
+    dailyImpact: 'Cada mañana, al ver a tu mascota en la taza, activas un momento de amor y gratitud que mejora tu estado de ánimo para todo el día.',
+    mentalBenefits: [
+      'Reducción del estrés mediante conexión emocional',
+      'Aumento de la felicidad al ver a tu mascota',
+      'Creación de un recordatorio de amor incondicional',
+      'Fortalecimiento del vínculo humano-animal'
+    ]
+  },
+  {
+    id: '14',
+    name: 'Taza Personalizada con tu Nombre',
+    slug: 'taza-personalizada-nombre',
+    tagline: 'Tu nombre, tu estilo',
+    description: 'Taza de cerámica personalizada con el nombre que elijas. Diseño elegante y moderno perfecto para uso diario en casa o en la oficina. Impresión de sublimación de alta calidad que garantiza durabilidad. Apta para lavavajillas y microondas. El regalo personalizado perfecto.',
+    price: 15.99,
+    image: '/img/productos/etsy/taza-personalizada-taza-con-nombre-personalizado-taza-con-no-1.jpg',
+    images: [
+      '/img/productos/etsy/taza-personalizada-taza-con-nombre-personalizado-taza-con-no-1.jpg',
+      '/img/productos/etsy/taza-personalizada-taza-con-nombre-personalizado-taza-con-no-2.jpg',
+      '/img/productos/etsy/taza-personalizada-taza-con-nombre-personalizado-taza-con-no-3.jpg',
+      '/img/productos/etsy/taza-personalizada-taza-con-nombre-personalizado-taza-con-no-4.jpg',
+      '/img/productos/etsy/taza-personalizada-taza-con-nombre-personalizado-taza-con-no-5.jpg',
+    ],
+    category: 'diseños',
+    psychologicalBenefits: [
+      'Refuerza la identidad personal de forma positiva',
+      'Crea un sentido de pertenencia y propiedad',
+      'Activa el reconocimiento personal cada mañana',
+      'Fortalece la autoestima mediante la personalización'
+    ],
+    neuroscience: {
+      title: 'El Poder de tu Nombre',
+      description: 'Escuchar o ver nuestro propio nombre activa áreas específicas del cerebro relacionadas con la identidad y el autoconcepto. Una taza con tu nombre es un recordatorio constante de tu unicidad y valor.'
+    },
+    dailyImpact: 'Cada vez que uses tu taza personalizada, refuerzas tu identidad positiva y creas un momento de autoafirmación.',
+    mentalBenefits: [
+      'Fortalecimiento de la identidad personal',
+      'Aumento de la autoestima',
+      'Creación de un objeto único y especial',
+      'Sentido de pertenencia y propiedad'
+    ]
+  },
+  {
+    id: '15',
+    name: 'Taza Navideña con Pollo Divertido',
+    slug: 'taza-navidena-pollo-divertido',
+    tagline: 'F-CAW-F - Humor navideño',
+    description: 'Celebra la Navidad con estilo y humor con esta taza personalizada con diseño de pollo festivo. Perfecta para quienes aprecian el humor único. Ideal para disfrutar de tu chocolate caliente o café durante las fiestas. El regalo divertido para Navidad.',
+    price: 16.99,
+    image: '/img/productos/etsy/taza-navidena-personalizada-f-caw-f-taza-de-cafe-con-pollo-d-1.jpg',
+    images: [
+      '/img/productos/etsy/taza-navidena-personalizada-f-caw-f-taza-de-cafe-con-pollo-d-1.jpg',
+      '/img/productos/etsy/taza-navidena-personalizada-f-caw-f-taza-de-cafe-con-pollo-d-2.jpg',
+      '/img/productos/etsy/taza-navidena-personalizada-f-caw-f-taza-de-cafe-con-pollo-d-3.jpg',
+      '/img/productos/etsy/taza-navidena-personalizada-f-caw-f-taza-de-cafe-con-pollo-d-4.jpg',
+      '/img/productos/etsy/taza-navidena-personalizada-f-caw-f-taza-de-cafe-con-pollo-d-5.jpg',
+    ],
+    category: 'diseños',
+    psychologicalBenefits: [
+      'El humor reduce el estrés navideño',
+      'Crea momentos de alegría y risa',
+      'Diferénciate con un regalo único y memorable',
+      'Activa la liberación de endorfinas mediante la risa'
+    ],
+    neuroscience: {
+      title: 'El Humor Como Medicina',
+      description: 'La risa activa múltiples áreas del cerebro y libera endorfinas, los analgésicos naturales del cuerpo. Un diseño divertido en tu taza te garantiza micro-dosis de felicidad cada mañana.'
+    },
+    dailyImpact: 'Empieza cada día de diciembre con una sonrisa. El humor de esta taza te acompaña en cada sorbo.',
+    mentalBenefits: [
+      'Reducción del estrés mediante el humor',
+      'Aumento de endorfinas y bienestar',
+      'Creación de memorias divertidas',
+      'Mejora del estado de ánimo matutino'
+    ]
+  },
+  {
+    id: '16',
+    name: 'Pack Diseños Gaming Fortnite',
+    slug: 'pack-disenos-gaming-fortnite',
+    tagline: '7 diseños exclusivos para gamers',
+    description: 'Pack completo de 7 diseños para sublimación con temática gaming. Incluye múltiples diseños exclusivos listos para imprimir en tazas. Archivos de alta resolución (300 DPI) perfectos para impresión profesional. Ideal para gamers y fanáticos de los videojuegos. Perfecto para emprendedores.',
+    price: 24.99,
+    image: '/img/productos/etsy/paquete-de-tazas-de-sublimacion-fort-gaming-con-7-disenos-en-1.jpg',
+    images: [
+      '/img/productos/etsy/paquete-de-tazas-de-sublimacion-fort-gaming-con-7-disenos-en-1.jpg',
+      '/img/productos/etsy/paquete-de-tazas-de-sublimacion-fort-gaming-con-7-disenos-en-2.jpg',
+      '/img/productos/etsy/paquete-de-tazas-de-sublimacion-fort-gaming-con-7-disenos-en-3.jpg',
+      '/img/productos/etsy/paquete-de-tazas-de-sublimacion-fort-gaming-con-7-disenos-en-4.jpg',
+      '/img/productos/etsy/paquete-de-tazas-de-sublimacion-fort-gaming-con-7-disenos-en-5.jpg',
+    ],
+    category: 'diseños',
+    psychologicalBenefits: [
+      'Conecta con la pasión por los videojuegos',
+      'Refuerza la identidad gamer',
+      'Crea un sentido de comunidad con otros jugadores',
+      'Activa memorias positivas de experiencias de juego'
+    ],
+    neuroscience: {
+      title: 'El Cerebro Gamer',
+      description: 'Los videojuegos activan los centros de recompensa del cerebro de manera similar a otras actividades placenteras. Una taza con diseño gaming te conecta con esas experiencias positivas, mejorando tu estado de ánimo.'
+    },
+    dailyImpact: 'Cada mañana, tu taza gamer te recuerda tus victorias y te motiva para nuevos desafíos, tanto virtuales como reales.',
+    mentalBenefits: [
+      'Conexión con la comunidad gamer',
+      'Refuerzo de la identidad personal',
+      'Motivación mediante recuerdos de logros',
+      'Expresión de pasiones personales'
+    ]
+  },
 ];
 
 export function getProductBySlug(slug: string): Product | undefined {
